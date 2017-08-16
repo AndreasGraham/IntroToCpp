@@ -15,21 +15,21 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="dtgreet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="rngPractice.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="func.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="mathutils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="func.h">
+    <ClInclude Include="dtgreet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="mathutils.h">
+    <ClInclude Include="rngPractice.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
