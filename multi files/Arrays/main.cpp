@@ -66,27 +66,65 @@ bool arrayUniqueness(int numbers[], int size) {
 	return false;
 
 }
+//remember just trying to reverse, what ever order it is, has nothing to do with value
+void Reverse(int num[], int size) {
+	
+	for (int i = 0; i < size / 2; i++) {
+		
+		//hold onto the number in the front
+		int temp = num[i];
 
-void Reverse(int numbers[], int size) {
-	int x = 0;
-	for (int i = 0; i < size-1; i++) {	
-		for (int j = 0; j < size-i-1; j++) {
-			if (numbers[j+1] == numbers[j]) {
-				
-				x = numbers[j];
-				numbers[j] = numbers[j+1];
-				numbers[j+1] = x;
+		//set the front to the back
+		num[i] = num[size - 1 - i];
+		//set the back to the front
+		num[size - 1 - i] = temp;
+		// 12345--> 52341 ---> 54321
+	}
+
+	for (int i = 0; i < size; i++) {
+		std::cout << num[i] << std::endl;
+	}
+}
+
+void descendingSort(int myArray[], int size) {
+	
+	for (int j = 0; j < size; j++) {
+		for (int i = 0; i < size; i++) {
+			if (myArray[i] < myArray[i + 1]) {
+				myArray[i] = myArray[i + 1] + myArray[i];
+				myArray[i + 1] = myArray[i] - myArray[i + 1];
+				myArray[i] = myArray[i] - myArray[i + 1];
 			}
 		}
+	}
+	for (int i = 0; i < size; i++) {
+		std::cout << myArray[i] << std::endl;
+	}
+}
+
+void ascendingSort(int myArray[], int size) {
+	//for (int j = 0; j < size; j++) {
+		for (int i = 0; i < size-1; i++) {
+			if (myArray[i] > myArray[i + 1]) {
+				myArray[i +1] = myArray[i + 1] + myArray[i];
+				myArray[i] = myArray[i+1] - myArray[i];
+				myArray[i+1] = myArray[i+1] - myArray[i];
+			}
 		
 	}
-	for (int i = 0; i < size + 1; i++) {
-		std::cout << numbers[i] << std::endl;
+	for (int i = 0; i < size; i++) {
+		std::cout << myArray[i] << std::endl;
 	}
 }
 
 
 int main() {
+	//                 0
+	// 2, 6, 3, 4, 3  1
+	// 2, 3, 6, 4, 3  2
+	// 2, 3, 4, 6, 3  3
+	// 2, 3, 4, 3, 6, 4
+	//
 
 	int a[] = {6, 2, 3, 4, 3 };
 	//printNumbers(a, 5);
@@ -96,6 +134,8 @@ int main() {
 	//largestValue(a, 5);
 	 //findIndex(a, 5, 2);
 	 //arrayUniqueness(a, 5);
-	Reverse(a, 5);
+	//Reverse(a, 5);
+	//descendingSort(a, 5);
+	ascendingSort(a, 5);
 	system("pause");
 }
