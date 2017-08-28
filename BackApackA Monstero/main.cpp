@@ -1,8 +1,9 @@
 #include <iostream>
 #include "gameStructs.h"
 
-Monstero Juliet = {23, 6, 2, 5, 14, 100};
-Monstero Romeo = { 10, 16, 4, 15, 5, 100 };
+//int MyArray[] = {1, 2, 3, 4};
+Monstero Juliet = {23, 6, 2, 5, 14, 100, 0};
+Monstero Romeo = { 10, 16, 4, 15, 5, 100, 0};
 Player Joe  = { Juliet };
 Player Schmoe = { Romeo };
 
