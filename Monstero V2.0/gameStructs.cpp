@@ -5,20 +5,27 @@
 using namespace std;
 
 void Attack(Monstero &A, Monstero &B) {
+	float oldHealth = B.HP;
 	if (B.HP < 50) {
 		B.Dfs = B.Dfs + B.Heart;
 		A.Power = A.Power*A.Brutality;
 	}
+	if (B.Dfs >= A.Power) {
+		std::cout << "No Damage was taken!" << std::endl;
+	}
+	else{
+		B.HP = B.HP - (A.Power - B.Dfs);
+		printStats(oldHealth, B.HP);
+	}
 	
-	B.HP = B.HP - (A.Power - B.Dfs);
 
-	std::cout << "Attack successful"<< std::endl;
+	//std::cout << "Attack successful" << std::endl;
 }
 
 
 void Love(Monstero &A) { // possibly make love reduce brutality, or make a move called LoveThyNeighbor which greatly reduces the enemies brutality, increases ones heart,
 	float oldHeart = A.Heart;
-	
+
 	A.Heart = A.Heart + 3;
 	std::cout << "Monstero feels love! Its heart stat was boosted!" << oldHeart << "-->" << A.Heart << std::endl;
 }
@@ -38,10 +45,15 @@ void Soul(Monstero &A) {
 }
 
 void Peace(Monstero &A, Monstero &B) {
-	A.Spd += 2;
-	if (B.Brutality < 5) {
-		B.Brutality -= 1;
-	}
+	float oldHeart = A.Heart;
+	float oldBrutality = A.Brutality;
+	A.Heart += 2;
+	A.HP += 20;
+	A.Brutality -= 0.25f;
+	B.Brutality -= 0.10f;
+	std::cout << "Your Monstero is at peace, Heart and HP have increased, Brutality has decreased" << std::endl;
+	printStats(oldHeart, A.Heart);
+	printStats(oldBrutality, A.Brutality);
 }
 
 void Focus(Monstero &A) {
@@ -53,45 +65,87 @@ void Focus(Monstero &A) {
 void Patience(Monstero &A) {
 	// possibly effects enemy, patience causes enemy to miss or become impatient (reflect that somehow)
 	// Player loses thier next turn but their spd is buffed greater
+	float oldSpeed = A.Spd;
 	A.Spd += 6;
+	printStats(oldSpeed, A.Spd);
 }
 
 void Confidence(Monstero &A) {
+	float oldDefense = A.Dfs;
+	float oldPower = A.Power;
 	A.Power = A.Power*1.20;
 	//A.Heart += 1;
 	A.Dfs = A.Dfs*1.20;
 
-	std::cout << "Power and Defense were increased by 20%!" << std::endl;
+	std::cout << "Your Monstero is Confident! Its Power and Defense were increased by 20%!" << std::endl;
+	printStats(oldDefense, A.Dfs);
+	printStats(oldPower,A.Power);
+
 }
 
 void Jealousy(Monstero &A) {
 	//A.Brutality += 0.25;
+	//float oldHeart = A.Heart;
 	A.Heart -= 3;
 	// lets the caster acquire the enemies passive ability
 }
 void Anxiety(Monstero &A) {
+	float oldDefense = A.Dfs;
+	float oldSpeed = A.Spd;
+	std::cout << "Your Monstero has Anxietty! Its speed has greatly increased however its defense has decreased." << std::endl;
 	A.Spd += 6;
 	A.Dfs -= 3;
+
+	printStats(oldDefense, A.Dfs);
+	printStats(oldSpeed, A.Spd);
 	//possibly miss a turn?
 }
 
 void Depression(Monstero &A) {
 	// maybe call these a thing like, Ditch, and ditching someone causes depression, which lowers their stat
 	// Maybe was Ditched! She is depressed! then display stats
+	float oldDefense = A.Dfs;
+	float oldSpeed = A.Spd;
+	std::cout << "Your Monstero is Depressed! Its Defense has greatly increased however its Spd has decreased." << std::endl;
+
 	A.Dfs += 6;
 	A.Spd -= 3;
+
+	printStats(oldDefense, A.Dfs);
+	printStats(oldSpeed, A.Spd);
 }
 
 void Fear(Monstero &A) {
+	float oldDefense = A.Dfs;
+	float oldPower = A.Power;
+	std::cout << "Your Monstero is afraid! Its Defense has increased greatly, however its Power has decreased." << std::endl;
+
+	A.Power -= 2;
 	A.Dfs += 4;
+
+	printStats(oldDefense, A.Dfs);
+	printStats(oldPower, A.Power);
 	// next turn is lost
 }
 
 void Hate(Monstero &A) {
 	// player gains an extra turn or save for blind rage? yea save for blind rage
+	std::cout << "Your Monstero truly hates the oponent. Its Power and Brutality have greatly increased at the cost of some health and heart" << std::endl;
+	float oldBrutality = A.Brutality;
+	float oldPower = A.Power;
+	float oldHeart = A.Heart;
+	float oldHP = A.HP;
+
+
 	A.Power += 6;
 	A.Brutality += 1;
+	A.Heart -= 3;
 	A.HP -= 25;
+
+	printStats(oldBrutality, A.Brutality);
+	printStats(oldPower, A.Power);	
+	printStats(oldHeart, A.Heart);
+	printStats(oldHP, A.HP);
 }
 
 void CalmMeditation(Monstero &A) {
@@ -107,21 +161,53 @@ void EgoBoost(Monstero &A) {
 }
 
 void Obesity(Monstero &A) {
+	
+	float oldDefense = A.Dfs;
+	float oldPower = A.Power;
+	float oldHeart = A.Heart;
+	float oldSpeed = A.Spd;
+
+	std::cout << "Your Monstero has become sad and ate itself into Obesity! Its Speed and Heart have decreased, but its Power and Defense has increased!" << std::endl;
+	
 	A.Spd = A.Spd / 1.5;
 	A.Heart = A.Heart / 1.5;
 
 	A.Power = A.Power * 1.5;
 	A.Dfs = A.Dfs * 1.5;
+	printStats(oldSpeed, A.Spd);
+	printStats(oldHeart, A.Heart);
+	printStats(oldPower, A.Power);
+	printStats(oldDefense, A.Dfs);
 }
 
 void InsultClothes(Monstero &A, Monstero &B) {
-	A.Heart -=3;
+	std::cout << "You insulted your enemies clothes. You feel guilty but you hurt their feelings!" << std::endl;
+	std::cout << "Your Heart has decreased, but so has their defense!" << std::endl;
+	
+	float oldHeart = A.Heart;
+	A.Heart -= 3;
 	B.Dfs -= 3;
+
+	printStats(oldHeart, A.Heart);
 }
 
+void infectionCheck(Monstero &A) {
+	if (A.infection == true) {
+		infection(A);
+	}
+}
+
+void infection(Monstero &A) {
+	A.infection = true;
+	A.HP -= 3;
+	std::cout << "The infection takes hold!" << std::endl;
+}
+
+// end of move functions
+
 void turnCheck1(int a, Monstero &A, Monstero &B) {
-	while(A.turns == 0)
-	srand(a);
+	while (A.turns == 0)
+		srand(a);
 	if (A.Spd >= B.Spd * 2) {
 		if (rng()*A.Spd > 37) {
 			A.turns = 1;
@@ -142,15 +228,15 @@ void turnCheck2(int a, Monstero &A, Monstero &B) {
 }
 
 void villainTurnCheck1(Monstero &A, Monstero &B) {
-		//srand(a);
+	//srand(a);
 	std::cout << "tities" << std::endl;
 
 	if (A.Spd >= B.Spd * 2) {
 		Attack(A, B);
-			//std::cout << "You Attack again! Sly Cooper!" << std::endl;
-			//return false;
-		}
+		//std::cout << "You Attack again! Sly Cooper!" << std::endl;
+		//return false;
 	}
+}
 
 
 void villainTurnCheck2(int a, Monstero &A, Monstero &B) {
@@ -166,12 +252,16 @@ void villainTurnCheck2(int a, Monstero &A, Monstero &B) {
 }
 
 /*void seedRng(int a) {
-	srand(a);
+srand(a);
 }*/
 
 int rng() {
 	int rng = rand() % 100 + 1;
 	return rng;
+}
+
+void printStats(float a, float b) {
+	std::cout << a << "-->" << b << std::endl;
 }
 
 
@@ -197,85 +287,105 @@ int rng() {
 // make move a switchboard that askes if bot or player, if player, the move select is given to the player (keyboard) if not (false) the move select is passed to rng vallues assigned to each premaid monstero (stretch goal)
 
 
-
+// in combat make if stament to see whos faster then call method to do fight for one person the call again with second
 bool Combat(Player &Hero, Player &Villain) {
+
+	
+	
+	Monstero playerMons = Hero.m, villainMons = Villain.m;
 	int userInput = 0;
 	//std::cout << "we did not reach the whilel loop" << std::endl;
 	while (true) {
 		//std::cout << "We made it into the function" << std::endl;
 		if (Hero.m.Spd > Villain.m.Spd) {
-				std::cout << "1: Attack" << std::endl;
-				std::cout << "2: Love" << std::endl;
-				std::cout << "3: Confidence" << std::endl;
-				std::cout << "4: Focus" << std::endl;
-				cin >> userInput;
-				if (userInput == 1) {
-					Attack(Hero.m, Villain.m);
-					
-				}
-				else if (userInput == 2) {
-					Love(Hero.m);
-					
-				}
-				else if (userInput == 3) {
-					Confidence(Hero.m);
-					
-				}
-				else if (userInput == 4) {
-					Focus(Hero.m);
-					
-				}
-				if (Villain.m.HP <= 0) {
-					std::cout << "YOU ARE VICTORIOUS. Your class rank has increased and more people will try to fuck you up!" << std::endl;
-					return false;
-				}
-				
-				Attack(Villain.m, Hero.m);
-			}
-		//}
-		else if (Villain.m.Spd > Hero.m.Spd) {
-			
-					Attack(Villain.m, Hero.m);
-					if (Hero.m.HP <= 0) {
-						std::cout << "You have been defeated, no one loves you and Juliet is dead" << std::endl;
+			infectionCheck(Villain.m);
+			infectionCheck(Hero.m);
 
-						return false;
-					}
-					
-
-				
-			}
-
-			
-			//Attack(Hero.m, Villain.m);
 			std::cout << "1: Attack" << std::endl;
 			std::cout << "2: Love" << std::endl;
 			std::cout << "3: Confidence" << std::endl;
-			std::cout << "4: Focus" << std::endl;
+			std::cout << "4: Infection" << std::endl;
 			cin >> userInput;
 			if (userInput == 1) {
 				Attack(Hero.m, Villain.m);
+
 			}
 			else if (userInput == 2) {
 				Love(Hero.m);
+
 			}
 			else if (userInput == 3) {
 				Confidence(Hero.m);
+
 			}
 			else if (userInput == 4) {
-				Focus(Hero.m);
-			}
+				infection(Villain.m);
 
-
-			std::cout << "H1: " << Hero.m.HP << std::endl;
-			std::cout << "H2: " << Villain.m.HP << std::endl;
-			if (Hero.m.HP <= 0) {
-				std::cout << "You have been defeated, no one loves you and Juliet is dead" << std::endl;
-				return false;
 			}
-			else if (Villain.m.HP <= 0) {
+			if (Villain.m.HP <= 0) {
 				std::cout << "YOU ARE VICTORIOUS. Your class rank has increased and more people will try to fuck you up!" << std::endl;
 				return false;
 			}
+
+			std::cout << "Enemy Attacked!" << std::endl;
+			Attack(Villain.m, Hero.m);
+			
 		}
+		//}
+		else if (Villain.m.Spd > Hero.m.Spd) {
+			//first check damage dealing status conditions (poison, burn/diss)
+			infectionCheck(Villain.m);
+
+			if (Villain.m.HP <= 0) {
+				std::cout << "You have been defeated, no one loves you and Juliet is dead" << std::endl;
+
+				return false;
+			}
+			
+			std::cout << "Enemy Attacked!" << std::endl;
+
+
+			Attack(Villain.m, Hero.m);
+
+
+			if (Hero.m.HP <= 0) {
+				std::cout << "You have been defeated, no one loves you and Juliet is dead" << std::endl;
+
+				return false;
+			}
+
+
+
+		}
+
+
+		//Attack(Hero.m, Villain.m);
+		std::cout << "1: Attack" << std::endl;
+		std::cout << "2: Love" << std::endl;
+		std::cout << "3: Confidence" << std::endl;
+		std::cout << "4: Infection" << std::endl;
+		cin >> userInput;
+		if (userInput == 1) {
+			Attack(Hero.m, Villain.m);
+		}
+		else if (userInput == 2) {
+			Love(Hero.m);
+		}
+		else if (userInput == 3) {
+			Confidence(Hero.m);
+		}
+		else if (userInput == 4) {
+			infection(Villain.m);
+		}
+
+		
+		if (Hero.m.HP <= 0) {
+			std::cout << "You have been defeated, no one loves you and Juliet is dead" << std::endl;
+			return false;
+		}
+		else if (Villain.m.HP <= 0) {
+			std::cout << "YOU ARE VICTORIOUS. Your class rank has increased and more people will try to fuck you up!" << std::endl;
+			return false;
+		} 
 	}
+}

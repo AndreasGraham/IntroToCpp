@@ -11,6 +11,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "5-MultiFile", "5-MultiFile\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BackApackA Monstero", "BackApackA Monstero\BackApackA Monstero.vcxproj", "{9918049E-5D77-4BA9-A0D6-10BAF708AEB4}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Strings practice", "Strings practice\Strings practice.vcxproj", "{26F849E7-CF5A-4147-84CD-602518C708E2}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Monstero V2.0", "Monstero V2.0\Monstero V2.0.vcxproj", "{C7D61ADA-4677-4C16-A14F-E1582A2F51CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -51,6 +55,22 @@ Global
 		{9918049E-5D77-4BA9-A0D6-10BAF708AEB4}.Release|x64.Build.0 = Release|x64
 		{9918049E-5D77-4BA9-A0D6-10BAF708AEB4}.Release|x86.ActiveCfg = Release|Win32
 		{9918049E-5D77-4BA9-A0D6-10BAF708AEB4}.Release|x86.Build.0 = Release|Win32
+		{26F849E7-CF5A-4147-84CD-602518C708E2}.Debug|x64.ActiveCfg = Debug|x64
+		{26F849E7-CF5A-4147-84CD-602518C708E2}.Debug|x64.Build.0 = Debug|x64
+		{26F849E7-CF5A-4147-84CD-602518C708E2}.Debug|x86.ActiveCfg = Debug|Win32
+		{26F849E7-CF5A-4147-84CD-602518C708E2}.Debug|x86.Build.0 = Debug|Win32
+		{26F849E7-CF5A-4147-84CD-602518C708E2}.Release|x64.ActiveCfg = Release|x64
+		{26F849E7-CF5A-4147-84CD-602518C708E2}.Release|x64.Build.0 = Release|x64
+		{26F849E7-CF5A-4147-84CD-602518C708E2}.Release|x86.ActiveCfg = Release|Win32
+		{26F849E7-CF5A-4147-84CD-602518C708E2}.Release|x86.Build.0 = Release|Win32
+		{C7D61ADA-4677-4C16-A14F-E1582A2F51CA}.Debug|x64.ActiveCfg = Debug|x64
+		{C7D61ADA-4677-4C16-A14F-E1582A2F51CA}.Debug|x64.Build.0 = Debug|x64
+		{C7D61ADA-4677-4C16-A14F-E1582A2F51CA}.Debug|x86.ActiveCfg = Debug|Win32
+		{C7D61ADA-4677-4C16-A14F-E1582A2F51CA}.Debug|x86.Build.0 = Debug|Win32
+		{C7D61ADA-4677-4C16-A14F-E1582A2F51CA}.Release|x64.ActiveCfg = Release|x64
+		{C7D61ADA-4677-4C16-A14F-E1582A2F51CA}.Release|x64.Build.0 = Release|x64
+		{C7D61ADA-4677-4C16-A14F-E1582A2F51CA}.Release|x86.ActiveCfg = Release|Win32
+		{C7D61ADA-4677-4C16-A14F-E1582A2F51CA}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
