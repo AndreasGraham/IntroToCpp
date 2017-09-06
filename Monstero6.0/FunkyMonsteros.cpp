@@ -198,6 +198,10 @@ bool Combat(Player Hero, Player Villain) {
 
 		std::cout << "P2 HP = " << Villain.m.HP << std::endl;
 		std::cout << std::endl;
+		if (Hero.m.Heart >= 50 && Villain.m.Heart >= 50) {
+			std::cout << "You understand what is in your opponents heart. The fighting stops." << std::endl;
+			return false;
+		}
 		
 	}
 }

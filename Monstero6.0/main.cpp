@@ -2,6 +2,8 @@
 #include "MonsteroStructs.h"
 using namespace std;
 
+//Waiqu Ko: "Twisted Child"
+
 // char name, power, dfs, brutality, spds, heart, HP, type
 
 
@@ -13,10 +15,19 @@ EL null1 = { "null", 0, 0, 0, 0, 0, 0, 0 };
 
 DTEL nullD = {"null", null, null1, "null", 0};
 
-EL Anxiety = {"Anxiety", 0, -3, 0, 6, 0, 0, "Speed was greatly increased, but defense decreased", 1}; // type one applies to self
-EL Depression = {"Crippling Depression", 0, 6, 0, -3, 0, 0, "Defense greatly increased, but speed decreased", 1};
-EL Confidence = {"Confidence Booster", 2, 2, 0, 2, 0, 0, "Power, defense, and speed were all boosted!", 1};
-EL BitchSlap = {"Bitch Slap", -1.5, 0, 0, 0, 0, 0, "You got bitchslapped!", 2}; //effects oponent
+EL Anxiety = {"Anxiety", 0, -3, 0, 6, 0, 0, "You might have a panic attack!", 1}; // type one applies to self
+EL Depression = {"Crippling Depression", 0, 6, 0, -3, 0, 0, "What is even the point?", 1};
+EL Confidence = {"Confidence Booster", 2, 2, 0, 2, 0, 0, "You believe therefore you do!", 1};
+EL BitchSlap = {"Bitch Slap", -1.15, 0, 0, 0, 0, 0, "You got bitchslapped! You must be a bitch!", 2}; //effects oponent
+//EL IntricateSoul
+//EL Fear = {"Eyes of Death", 0, }
+EL Hatred = { "The Depths of Hate", 10, -5, 1.35, 2, -5, -40, "Your heart is full of hate!", 1};
+EL Obesity = { "Eat your Feelings!", 6, 3, 0, -3, -5, 0, "Ice Cream and Chicken wings for dinner!", 1};
+EL KarateKlass = { "Blue Belt", -1.10, 1, 0, 1, 1, 0, "Mediocre low kick!", 2 };
+EL sacraficialLamb = {"True Sight", 0, 0, 0, 0, 10, -5, "You see into your enemies heart.", 1};
+//KrustyKrab
+//EL
+
 
 EL moveArray[] {null, BitchSlap, Depression, Confidence};
 DTEL moveArrayD[] = {SpreadPeace, nullD, nullD, nullD};
