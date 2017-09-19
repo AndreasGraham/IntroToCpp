@@ -7,15 +7,6 @@ using namespace std;
 //Waiqu Ko: "Twisted Child"
 
 // char name, power, dfs, brutality, spds, heart, HP, type
-
-fstream file;
-file.open("MonsteroMoves.txt");
-
-if (file.fail()) {
-	std::cerr << "File not found!" << std::endl;
-	return false;
-}
-
 EL PeaceBuff = {"Spread Peace", 0, 0, -0.05f , 0, 3, 20, 0};
 EL PeaceNerf = { "Spread Peace", 0, 0, -0.10f, 0, 0, 0, 0 };
 DTEL SpreadPeace = { "Spread Peace", PeaceBuff, PeaceNerf, "All Brutality was reduced!" , 0};
@@ -41,15 +32,7 @@ EL sacraficialLamb = {"True Sight", 0, 0, 0, 0, 10, -5, "You see into your enemi
 // string name = FILE IO THINGY
 // 
 
-void FillMoveFromFile(EL move, string name)
-{
-	//Look for "spread, name
-	
-	move.moveName; // = "spread
-	//getline(buffer)
-	move.Brutality; // = stoi(buffer) (changes a string to an integer)
-	move.Power;
-}
+
 
 
 //KrustyKrab
@@ -93,6 +76,18 @@ int main() {
 	float speed1 = 0;
 	float heart1 = 0;
 	int heroSelect = 0;
+
+	FillMoveFromFile(BitchSlap);
+	cout << BitchSlap.Brutality << endl;
+	cout << BitchSlap.Spd << endl;
+	cout << BitchSlap.Heart << endl;
+	cout << BitchSlap.HP << endl;
+	cout << BitchSlap.Dfs << endl;
+	cout << BitchSlap.Power << endl;
+	
+
+
+
 
 	cout << "Would you like to create a character, or load a character? (1 or 0)" << endl;
 	cin >> heroSelect;

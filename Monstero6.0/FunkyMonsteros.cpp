@@ -1,5 +1,7 @@
 #include "MonsteroStructs.h"
 #include <iostream>
+#include <fstream>
+#include <string>
 using namespace std;
 
 //EffectLayer sacraficialLove = {}
@@ -101,6 +103,45 @@ void creation2(float &power, float &defense, float &brutality, float &speed, flo
 	}
 }
 
+void FillMoveFromFile(EL &move)
+{
+	//Look for "spread, name
+
+	fstream file;
+	file.open("MonsteroMoves.txt");
+
+	if (file.fail()) {
+		std::cerr << "File not found!" << std::endl;
+	}
+	int Entities = 0;
+	while (Entities < 1) {
+
+		std::string buffer;
+		while (std::getline(file, buffer)) {
+			if (buffer[0] == '@') {
+				std::cout << buffer << std::endl;
+				break;
+			}
+		}
+
+		std::getline(file, buffer);
+		move.Power = stof(buffer);
+		std::getline(file, buffer);
+		move.Dfs = stof(buffer);
+		std::getline(file, buffer);
+		move.Brutality = stof(buffer);
+		std::getline(file, buffer);
+		move.Spd = stof(buffer);
+		std::getline(file, buffer);
+		move.Heart = stof(buffer);
+		std::getline(file, buffer);
+		move.HP = stof(buffer);
+		std::getline(file, buffer);
+		std::getline(file, buffer);
+		move.type = stof(buffer);
+		Entities++;
+	}
+}
 
 void displayMoves(Moveset moveSet) {
 	

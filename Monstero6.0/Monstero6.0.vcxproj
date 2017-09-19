@@ -25,6 +25,9 @@
   <ItemGroup>
     <ClInclude Include="MonsteroStructs.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="MonsteroMoves.txt" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{DDE362F9-E2D8-4F7D-AB78-67614A6F3794}</ProjectGuid>
     <RootNamespace>Monstero60</RootNamespace>

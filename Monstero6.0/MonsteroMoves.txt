@@ -1,0 +1,95 @@
+@Anxiety
+32
+47
+89
+12
+90
+47
+You might have a panic attack!
+1
+ 
+
+
+@Spread Peace
+0
+0
+-0.10f
+0
+0
+0
+0 
+
+
+@Crippling Depression
+0
+6
+0
+-3
+0
+0
+What is even the point?
+1
+
+@Confidence Booster
+2
+2
+0
+2
+0
+0
+You believe therefore you do!
+1
+
+@Bitch Slap"
+-1.15
+0
+0
+0
+0
+0
+You got bitchslapped! You must be a bitch!
+2
+
+@The Depths of Hate
+10
+-5
+1.35
+2
+-5
+-40
+Your heart is full of hate!
+1
+
+@Eat your Feelings!
+6
+3
+0
+-3
+-5
+0
+Ice Cream and Chicken wings for dinner!
+1
+
+@Blue Belt
+-1.10
+1
+0
+1
+1
+0
+Mediocre low kick!
+2 
+
+@True Sight
+0
+0
+0
+0
+10
+-5
+You see into your enemies heart.
+ 1
+
+
+
+
