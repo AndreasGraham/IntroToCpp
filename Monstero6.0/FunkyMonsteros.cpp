@@ -56,6 +56,52 @@ void dtApply(DTEL e, Monstero &m, Monstero &v) {
 	displayDTELstring(e);
 }
 
+
+void creation1(float &power, float &defense, float &brutality, float &speed, float &heart)
+{
+	std::cout << "Player 1 Enter your stats! Balance 5 stants among 50 points!" << std::endl;
+	std::cout << "Power: " << std::endl;
+	cin >> power;
+	std::cout << "Defense: " << std::endl;
+
+	cin >> defense;
+	std::cout << "Brutality: " << std::endl;
+
+	cin >> brutality;
+	std::cout << "Speed: " << std::endl;
+
+	cin >> speed;
+	std::cout << "Heart: " << std::endl;
+
+	cin >> heart;
+	if (power + defense + brutality + speed + heart > 50) {
+		std::cout << "you cheating fuck" << std::endl;
+	}
+}
+
+void creation2(float &power, float &defense, float &brutality, float &speed, float &heart)
+{
+	std::cout << "Player 2 Enter your stats! Balance 5 stants among 50 points!" << std::endl;
+	std::cout << "Power: " << std::endl;
+	cin >> power;
+	std::cout << "Defense: " << std::endl;
+
+	cin >> defense;
+	std::cout << "Brutality: " << std::endl;
+
+	cin >> brutality;
+	std::cout << "Speed: " << std::endl;
+
+	cin >> speed;
+	std::cout << "Heart: " << std::endl;
+
+	cin >> heart;
+	if (power + defense + brutality + speed + heart > 50) {
+		std::cout << "you cheating fuck" << std::endl;
+	}
+}
+
+
 void displayMoves(Moveset moveSet) {
 	
 	//std::cout << "1) " << moveSet.moveArray[1].moveName << std::endl;

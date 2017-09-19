@@ -63,3 +63,5 @@ bool Combat(Player Hero, Player Villain);
 void applyAttack(EL e, Monstero &m, Monstero &g);
 void displayString(EL e);
 void displayDTELstring(DTEL d);
+void creation1(float &power, float &defense, float &brutality, float &speed, float &heart);
+void creation2(float &power, float &defense, float &brutality, float &speed, float &heart);
